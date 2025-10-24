@@ -1,0 +1,75 @@
+/* ---------- Body ---------- */
+body { font-family: "Segoe UI", Tahoma, Arial, sans-serif; transition: background-color 0.3s, color 0.3s; }
+
+/* ---------- Cards ---------- */
+.card { border-radius: 10px; transition: transform 0.3s, box-shadow 0.3s; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+/* ---------- Badges ---------- */
+.badge.Beginner { background-color: #0d6efd; padding: 8px;}
+.badge.Intermediate { background-color: #198754;  padding:8px;}
+.badge.Advanced { background-color: #dc3545;  padding:8px;}
+
+/* ---------- Tabs ---------- */
+.nav-tabs { overflow-x: auto; }
+.nav-tabs .nav-link.active { background-color:#0d6efd; color:#fff; }
+.nav-tabs .nav-link { color:#555; }
+
+/* ---------- Flashcards ---------- */
+.flashcard { 
+  width: 100%; max-width: 320px; min-height: 180px; border-radius: 10px; 
+  border:1px solid #ccc; display:flex; align-items:center; justify-content:center; 
+  perspective:1000px; cursor:pointer; margin:auto; transition:transform 0.3s, box-shadow 0.3s; 
+}
+.flashcard:hover { box-shadow:0 10px 20px rgba(0,0,0,0.2); transform: scale(1.05);}
+.flashcard-inner { width:100%; height:100%; position:relative; transform-style: preserve-3d; transition: transform 0.6s;}
+.flashcard-front, .flashcard-back { 
+  position:absolute; width:100%; height:100%; backface-visibility:hidden; 
+  display:flex; align-items:center; justify-content:center; font-size:1.2rem; padding:1rem; 
+  border-radius:10px; color:#000; word-wrap: break-word; text-align: center;
+  border: none;
+}
+.flashcard-back { transform: rotateY(180deg); background:#f8f9fa; }
+.flipped { transform: rotateY(180deg); }
+
+/* ---------- Responsive layout ---------- */
+#learnHeader { flex-wrap: wrap; justify-content: space-between; }
+#learnHeader select { max-width: 100%; }
+
+/* ---------- Dark Mode ---------- */
+body.dark, body.dark.bg-light { background-color: #121212 !important; color: #e0e0e0; }
+body.dark .card { background-color: #1e1e1e; color: #fff; border: 1px solid #0d6efd; }
+body.dark .card h5, body.dark .card p, body.dark .card .badge, body.dark .card .small { color: #fff !important; }
+body.dark #learn, body.dark #learn .container, body.dark #learn .tab-content { background-color: #121212 !important; color: #e0e0e0 !important; }
+body.dark .flashcard { background-color: #1e1e1e; color: #fff; border:2px solid #0d6efd; }
+body.dark .flashcard-front, body.dark .flashcard-back { background-color: #1e1e1e; color: #fff; border:none; }
+body.dark #learn select, body.dark #learn select option { background-color:#1e1e1e; color:#e0e0e0; border-color:#0d6efd; }
+body.dark #learn select:focus { outline:none; }
+body.dark #learnShortcuts { color:#e0e0e0; }
+body.dark #learnShortcuts b { color:#ffffff; }
+body.dark #learnHeader { background-color:#1e1e1e !important; color:#ffffff !important; border-radius:10px; padding:1rem; display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; }
+body.dark #learnHeader #learnShortcuts { background-color:transparent; color:#ffffff; }
+body.dark #learnHeader #learnShortcuts b { color:#ffffff; }
+body.dark #learnHeader select, body.dark #learnHeader select option { background-color:#1e1e1e; color:#ffffff; border-color:#0d6efd; }
+body.dark #learn .nav-tabs { border-bottom: 2px solid #0d6efd; overflow-x: auto; }
+body.dark #learn .nav-tabs .nav-link { color: #cccccc; border: 1px solid #0d6efd; border-bottom: none; border-radius: 5px 5px 0 0; background-color: transparent; }
+body.dark #learn .nav-tabs .nav-link.active { background-color: #0d6efd; color: #ffffff; border-color: #0d6efd; border-bottom: none; }
+
+/* ---------- Empty Library Message ---------- */
+#emptyLibrary {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 2rem; border: 2px dashed #6c757d; border-radius: 12px;
+  background-color: #f8f9fa; color: #6c757d; font-size: 1.1rem;
+}
+#emptyLibrary .empty-icon { font-size: 3rem; margin-bottom: 1rem; color: #6c757d; }
+
+/* Dark Mode Empty Library */
+body.dark #emptyLibrary { background-color: #1e1e1e; border-color: #0d6efd; color: #ffffff; }
+body.dark #emptyLibrary .empty-icon { color: #0d6efd; }
+
+/* ---------- Learn Capsule Select RWD ---------- */
+#learnHeader #capsuleSelect { min-width: 150px; max-width: 300px; }
+@media (max-width: 576px) {
+  #learnHeader { flex-direction: column; align-items: stretch; }
+  #learnHeader #capsuleSelect { width: 100%; }
+}
